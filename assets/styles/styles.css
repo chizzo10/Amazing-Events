@@ -89,6 +89,11 @@ table{
    
 }
 
+tr, td, th{
+    border: 1px solid black;
+}
+
+
 /* .darkMode{
     background-color: #161616;
     color: rgb(139, 70, 203);
