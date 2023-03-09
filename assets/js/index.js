@@ -5,14 +5,35 @@
 // }
 
 // body.classList.toggle("darkMode")
-const cardContainer = document.getElementById('container-cards');
 
-function createCards(arrayData) {
+
+// CURRENT DATE
+
+
+
+// CARD
+
+const cardContainer = document.getElementById('container-cards');
+// sort data by name (in ascending order)
+events.sort((a, b) => {
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+
+    if (nameA < nameB) {
+        return -1;
+    }
+    if (nameA > nameB) {
+        return 1;
+    }
+
+    return 0;
+});
+const createCards = (arrayData) => {
     let card = '';
     let cards = '';
-    for (const event of arrayData) {
-        if (parseInt(event.date) >= parseInt(currentDate)) {
-            card +=`
+    arrayData.forEach((event) => {
+        if (event.date >= currentDate) {
+            card += `
             
             <div class="col">
             <div class="card h-100 text-bg-light">
@@ -30,7 +51,8 @@ function createCards(arrayData) {
                         $${event.price}
                     </p>
                     
-                    <a href="details.html" class="btn btn-primary">Details...</a>
+                    <a href="details.html?id=${event.id}" class="btn btn-primary">Details...</a>
+                    
                 </div>
             </div>
                 </div>`
@@ -56,16 +78,115 @@ function createCards(arrayData) {
                                 $${event.price}
                             </p>
                             
-                            <a href="details.html" class="btn btn-primary">Details...</a>
+                            <a href="details.html?id=${event.id}" class="btn btn-primary">Details...</a>
                         </div>
                     </div>
                 </div>`
         }
-    }
+    });
 
-    return (card + cards)
+    cardContainer.innerHTML = card + cards
 }
 
-let elementsCards = createCards(events)
+createCards(events)
 
-cardContainer.innerHTML = elementsCards
+
+// CATEGORY 
+// Variables
+const categorySearch = document.getElementById('category-search');
+let categEve = events;
+
+// Funciones
+const filterCategories = (arrayData) => {
+  let categoriesUnique = [];
+
+  arrayData.forEach(event => {
+    if (!categoriesUnique.includes(event.category)) {
+      categoriesUnique.push(event.category);
+    }
+  });
+
+  return categoriesUnique.sort();
+}
+
+const createCategories = (arrayCat) => {
+  let categories = '';
+
+  arrayCat.forEach(cat => {
+    categories += `
+      <div class="btn" aria-label="Basic checkbox toggle button group">
+        <input type="checkbox" class="btn-check" checked="checked" name="category" value="${cat}" id="${cat}" onclick="arrCategorySelected()">
+        <label class="btn btn-outline-primary" for="${cat}">
+          <span>${cat}</span>
+        </label>
+      </div>`
+  });
+
+  categorySearch.innerHTML = categories;
+}
+
+const filterEventsByCategory = (arrayCategories, arrayEvents = events) => {
+  let filteredEvents = [];
+
+  arrayCategories.forEach(categor => {
+    arrayEvents.forEach(event => {
+      if (event.category == categor) {
+        filteredEvents.push(event)
+      }
+    })
+  });
+
+  return filteredEvents;
+}
+
+const arrCategorySelected = (() => {
+  inputSearch.value = '';
+  let selection = [];
+
+  arrCategories.forEach(category => {
+    let selector = document.getElementById(category);
+
+    if (selector.checked) {
+      selection.push(category)
+    }
+  });
+
+  if (selection.length != 0) {
+    createCards(filterEventsByCategory(selection))
+  } else {
+    cardContainer.innerHTML = ''
+  }
+
+  let checkedForSearch = filterEventsByCategory(selection)
+  categEve = checkedForSearch.map(event => event);
+
+ 
+});
+
+// Código principal
+const arrCategories = filterCategories(events);
+createCategories(arrCategories);
+
+
+
+
+// SEARCH
+
+
+const inputSearch = document.getElementById('search');
+
+
+inputSearch.addEventListener("keyup", () => {
+    const filterCards = events.filter((event) => event.name.toLowerCase().includes(inputSearch.value.trim().toLowerCase()));
+
+    createCards(filterCards);
+
+    noResultsMessage.innerHTML = filterCards.length === 0
+
+});
+
+
+
+
+
+

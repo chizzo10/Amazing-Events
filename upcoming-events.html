@@ -54,10 +54,15 @@
                 </div> -->
 
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-primary" type="submit">Search</button>
-                    </form>
+
+                    
+
+                        <form class="d-flex" role="search">
+                            <input class="Search filter form-control me-2" type="search" id="search"
+                                placeholder="Search" aria-label="Search" onkeyup="searchEvent()">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
                 </div>
             </div>
 
@@ -74,25 +79,12 @@
             </div>
 
 
-            <div class="checkbox">
+            <div class="checkbox" id="category-search">
 
-                <div class="btn"  aria-label="Basic checkbox toggle button group">
-                    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck1">Checkbox 1</label>
 
-                    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck2">Checkbox 2</label>
+                <!-- CATEGORIES HERE -->
 
-                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck3">Checkbox 3</label>
-
-                    <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck4">Checkbox 4</label>
-
-                    <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btncheck5">Checkbox 5</label>
-
-                </div>
+            </div>
 
 
 
