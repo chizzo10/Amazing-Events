@@ -162,8 +162,18 @@ const arrCategorySelected = (() => {
   let checkedForSearch = filterEventsByCategory(selection)
   categEve = checkedForSearch.map(event => event);
 
- 
-});
+  if (cardContainer.innerHTML === '') {
+    noResultsMessage.innerHTML = `
+        <div class="travolta-container">
+            <img src="./assets/img/AmazingNotFound" alt="No results found">
+        </div>
+        <h3>We're sorry</h3>
+        <h6>but there are no results for the selected category/s.</h6>
+        `
+} else {
+    noResultsMessage.innerHTML = '';
+}
+})
 
 // Código principal
 const arrCategories = filterCategories(events);
