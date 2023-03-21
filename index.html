@@ -48,21 +48,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="./stats.html">Staft</a>
                         </li>
-                        <div>
+                        <!-- <div>
                             <button onclick="toggleDarkMode()" id="darkmode" alt="darkMode">
                                 <img src="./assets/img/dark.png" alt="darkModeButton">
                             </button>
-    
-                </div>
+
+                        </div> -->
                     </ul>
 
+                    <div class="d-flex">
+                        <input type="text" class="form-control me-2" id="search-content" placeholder="Search"
+                            aria-label="Search">
 
-
-                    <form class="d-flex" role="search">
-                        <input class="Search filter form-control me-2" type="search" id="search" placeholder="Search"
-                            aria-label="Search" onkeyup="searchEvent()">
-                        <button class="btn btn-outline-primary" type="submit">Search</button>
-                    </form>
+                        <button class="btn btn-outline-primary" type="button" name="buscar" id="search"><i
+                                class="bi bi-search">Search</i></button>
+                    </div>
                 </div>
 
             </div>
@@ -74,39 +74,28 @@
 
 
     <main>
-        <section>
 
 
+        <div class="title">
+            <h2>HOME</h2>
+        </div>
 
 
-            <div class="title">
-                <h2>HOME</h2>
+        <section
+            class="search-area d-flex pt-3 pb-4 flex-column justify-content-around align-items-center flex-lg-row border-bottom">
 
-
+            <div class="d-flex justify-content-around flex-wrap col-12 col-lg-6 mb-3 mb-lg-0" id="checkbox">
+                <!-- Check-->
             </div>
 
-
-            <div class="checkbox" id="category-search">
-
-
-                <!-- CATEGORIES HERE -->
-
-            </div>
-
-            <div class="containerIn card-all" id="card-all">
-
-                <div class="container cards-container text-center" id="card">
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="container-cards">
-                        <!-- CARDS -->
-                    </div>
-                    <div id="message"
-                    class="no-results-message d-flex flex-column justify-content-center align-items-center">
-                    <!-- MESSAGE  -->
-                </div>
-                </div>
-            </div>
 
         </section>
+
+        <div id="cards" class=" image row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-4 mt-5 mx-3 text-center">
+            <!-- CArds -->
+        </div>
+
+
     </main>
 
     <footer class="text-center text-lg-start redes" style="background-color: #6e6d6f;">
@@ -128,8 +117,8 @@
         <!-- Copyright -->
     </footer>
 
-    <script src="./data.js"></script>
-    <script src="./assets/js/darkMode.js"></script>
+
+
     <script src="./assets/js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"

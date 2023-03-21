@@ -1,225 +1,72 @@
 
-// //  // Obtener el ID del evento de la consulta de la URL
-//  const params = new URLSearchParams(location.search);
-//  const id = params.get("id");
 
-// // // Encontrar el evento correspondiente al ID
-//  const detailEvent = events.find((event) => event.id == id);
-
-// // // Formatear la fecha del evento para mostrarla en un formato legible
-//  const detailDate = new Date(detailEvent.date + "T00:00:00.000-05:00");
-//  const detailDateFormatted = detailDate.toDateString();
-
-// // // Definir las variables que se utilizarán para mostrar los detalles del evento
-//  const place = detailEvent.place;
-//  const price = detailEvent.price;
-//  const capacity = detailEvent.capacity;
-//  const assistance = detailEvent.assistance;
-//  const estimate = detailEvent.estimate;
-
-// // // Determinar si el evento se realizará en el futuro o no
-//  const date = new Date();
-//  const currentDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().split("T")[0];
-//  const eventDate = detailEvent.date;
-//  const isFutureEvent = eventDate >= currentDate;
-
-// // // Crear el HTML para mostrar los detalles del evento
-//  const cardColor = isFutureEvent ? "" : "bg-secondary";
-//  const cardTitle = detailEvent.name;
-//  const cardDescription = detailEvent.description;
-//  const cardCategory = detailEvent.category;
-//  const cardDate = detailDateFormatted;
-//  const cardPlace = place;
-//  const cardPrice = `$${price}`;
-//  const cardCapacity = capacity;
-//    const cardAssistance = assistance || estimate;
-
-//  const cardBodyHtml = `
-//    <h5 class="card-title">${cardTitle}</h5>
-//    <p class="card-text">${cardDescription}</p>
-//    <p class="card-text"><small class="text-muted"><span>Category:&nbsp;</span>${cardCategory}</small></p>
-//    <p class="card-text"><small class="text-muted"><span>Date:&nbsp;</span><time datetime="${eventDate}">${cardDate}</time></small></p>
-//    <p class="card-text"><small class="text-muted"><span>Place:&nbsp;</span>${cardPlace}</small></p>
-//    <p class="card-text"><small class="text-muted"><span>Price:&nbsp;</span>${cardPrice}</small></p>
-//    <p class="card-text"><small class="text-muted"><span>Capacity:&nbsp;</span>${cardCapacity}</small></p>
-//    <p class="card-text"><small class="text-muted"><span>Assistance:&nbsp;</span>${cardAssistance}</p>
-//  `;
-
-//  const cardHtml = `
-//    <div class="card mb-3 text-${cardColor}" style="max-width: 540px;">
-//      <div class="row g-0">
-//        <div class="col-md-4">
-//          <img src="${detailEvent.image}" class="img-fluid rounded-start" alt="Details image">
-//        </div>
-//       <div class="col-md-8`
-
-
-
-
-
-//   const queryString = location.search;
-
-//   const params = new URLSearchParams(queryString);
-
-//   const id = params.get("id")
-
-//   const detailEvent = events.find(event => event.id == id);
-
-//   const cardDetails = document.getElementById('deContainer')
-
-//  const detailDateFormatted = new Date(detailEvent.date + "T00:00:00.000-05:00").toDateString();
-
-//   if (detailEvent.date >= currentDate) {
-//       cardDetails.innerHTML = `
-//    <div class="card mb-3 text-${date >= currentDate ? '' : 'bg-secondary'}" style="max-width: 540px;">
-//       <div class="row g-0">
-//        <div class="col-md-4">
-//          <img src="${detailEvent.image}" class="img-fluid rounded-start" alt="Details image">
-//         </div>
-//        <div class="col-md-8">
-//           <div class="card-body">
-//             <h5 class="card-title">${detailEvent.name}</h5>
-//            <p class="card-text">${detailEvent.description}}</p>
-//            <p class="card-text"><small class="text-muted"><span>Category:&nbsp;</span>${detailEvent.category}</small></p>
-//            <p class="card-text"><small class="text-muted"><span>Date:&nbsp;</span><time datetime="${detailEvent.date}">${detailDateFormatted}</time></small></p>
-//             <p class="card-text"><small class="text-muted"> <span>Place:&nbsp;</span>${place}</small></p>
-//          <p class="card-text"><small class="text-muted"><span>Price:&nbsp;</span>$${price}</small></p>
-//            <p class="card-text"><small class="text-muted"><span>Capacity:&nbsp;</span>${capacity}</small></p>
-//            <p class="card-text"><small class="text-muted"><span>Assistance:&nbsp;</span>${assistance || estimate}</p>
-//           </div>
-//         </div>
-//       </div>
-//     </div>`
-//   } else {
-//     cardDetails.innerHTML = `
-//     <div class="card mb-3 text-${date >= currentDate ? '' : 'bg-secondary'}" style="max-width: 540px;">
-//     <div class="row g-0">
-//       <div class="col-md-4">
-//         <img src="${detailEvent.image}" class="img-fluid rounded-start" alt="Details image">
-//       </div>
-//       <div class="col-md-8">
-//        <div class="card-body">
-//           <h5 class="card-title">${detailEvent.name}</h5>
-//           <p class="card-text">${detailEvent.description}}</p>
-//          <p class="card-text"><small class="text-muted"><span>Category:&nbsp;</span>${detailEvent.category}</small></p>
-//           <p class="card-text"><small class="text-muted"><span>Date:&nbsp;</span><time datetime="${detailEvent.date}">${detailDateFormatted}</time></small></p>
-//          <p class="card-text"><small class="text-muted"> <span>Place:&nbsp;</span>${place}</small></p>
-//           <p class="card-text"><small class="text-muted"><span>Price:&nbsp;</span>$${price}</small></p>
-//          <p class="card-text"><small class="text-muted"><span>Capacity:&nbsp;</span>${capacity}</small></p>
-//           <p class="card-text"><small class="text-muted"><span>Assistance:&nbsp;</span>${assistance || estimate}</p>
-//         </div>
-//       </div>
-//     </div>
-//   </div>`
-//   }
-
-
-// DETAILS CARD
 
 const queryString = location.search;
 
 const params = new URLSearchParams(queryString);
 
-const id = params.get("id")
+const id = params.get('id');
 
-const detailEvent = events.find(event => event.id == id);
+const urlApi = "https://mindhub-xj03.onrender.com/api/amazing";
 
-const detailsContainer = document.getElementById('deContainer')
+let allEvents;
 
-const detailDateFormatted = new Date(detailEvent.date + "T00:00:00.000-05:00").toDateString();
+let currentDate;
 
-if (detailEvent.date >= currentDate) {
-  detailsContainer.innerHTML =`
-    <div class="card mb-3 " style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="${detailEvent.image}" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8 d-flex flex-column flex-sm-row">
-          <div class="card-body text-sm-end d-flex flex-column center flex-sm-row flex-sm-wrap align-content-sm-between justify-content-sm-end">
-            <div>
-              <h5 class="card-title p-2 ">${detailEvent.name}</h5>
-              <p class="card-text p-2">${detailEvent.description}</p>
+async function traerDatos() {
 
-              <div class="card-footer p-3">
-                <ul class="list-group list-group-flush d-flex flex-col justify-content-start ">
-                  <li class=" d-flex align-items-center">
-                    <i class="bi bi-grid"></i>
-                    <span>Category:&nbsp;</span> ${detailEvent.category}
-                  </li>
-                  <li class=" d-flex align-items-center">
-                    <i class="bi bi-calendar-date"></i>
-                    <span>Date:&nbsp;</span><time datetime="${detailEvent.date}">${detailDateFormatted}</time>
-                  </li>
-                  <li class=" d-flex align-items-center">
-                    <i class="bi bi-geo-alt-fill"></i>
-                    <span>Place:&nbsp;</span>${detailEvent.place}
-                  </li>
-                  <li class=" d-flex align-items-center">
-                    <i class="bi bi-tag"></i>
-                    <span>Price:&nbsp;</span>$${detailEvent.price}
-                  </li>
-                  <li class=" d-flex align-items-center">
-                    <i class="bi bi-door-closed"></i>
-                    <span>Capacity:&nbsp;</span>${detailEvent.capacity}
-                  </li>
-                  <li class=" d-flex align-items-center">
-                    <i class="bi bi-people-fill"></i>
-                    <span>Estimate:&nbsp;</span>${detailEvent.estimate}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>`
-} else {
-        detailsContainer.innerHTML =
+    try {
+        const datos = await fetch(urlApi)
+            .then(response => response.json())
+            .then(data => data);
 
-        `
-        <div class="card mb-3  text-bg-secondary" style="max-width: 540px;">
+        allEvents = datos.events;
+        currentDate = datos.currentDate;
+        detailsInitializer()
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+traerDatos();
+
+function detailsInitializer() {
+
+    const eventDetail = allEvents.find(event => event._id == id);
+    createCard()
+    function createCard() {
+        const detailCard = document.getElementById('detailCard');
+        card =`
+
+        <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
-        <div class="col-md-4">
-          <img src="${detailEvent.image}" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8 d-flex flex-column flex-sm-row">
-          <div class="card-body text-sm-end d-flex flex-column center flex-sm-row flex-sm-wrap align-content-sm-between justify-content-sm-end">
-            <div>
-              <h5 class="card-title p-2 ">${detailEvent.name}</h5>
-              <p class="card-text p-2">${detailEvent.description}</p>
-
+          <div class="col-md-4">
+            <img id="detail-img" src="${eventDetail.image}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">${eventDetail.name}</h5>
+              <p class="card-text">${eventDetail.description}</p>
               <div class="card-footer p-3">
-                <ul class="list-group list-group-flush d-flex flex-col justify-content-start ">
-                  <li class=" d-flex align-items-center">
-                    <i class="bi bi-grid"></i>
-                    <span>Category:&nbsp;</span> ${detailEvent.category}
-                  </li>
-                  <li class=" d-flex align-items-center">
-                    <i class="bi bi-calendar-date"></i>
-                    <span>Date:&nbsp;</span><time datetime="${detailEvent.date}">${detailDateFormatted}</time>
-                  </li>
-                  <li class=" d-flex align-items-center">
-                    <i class="bi bi-geo-alt-fill"></i>
-                    <span>Place:&nbsp;</span>${detailEvent.place}
-                  </li>
-                  <li class=" d-flex align-items-center">
-                    <i class="bi bi-tag"></i>
-                    <span>Price:&nbsp;</span>$${detailEvent.price}
-                  </li>
-                  <li class=" d-flex align-items-center">
-                    <i class="bi bi-door-closed"></i>
-                    <span>Capacity:&nbsp;</span>${detailEvent.capacity}
-                  </li>
-                  <li class=" d-flex align-items-center">
-                    <i class="bi bi-people-fill"></i>
-                    <span>Estimate:&nbsp;</span>${detailEvent.estimate}
-                  </li>
-                </ul>
+              <p class="card-text"><small class="text-muted"><span class="col-7">Category: ${eventDetail.category}</span></small></p>
+              <p class="card-text"><small class="text-muted"><span class="col-7">Capacity: ${eventDetail.capacity}</span></small></p>
+              <p class="card-text"><small class="text-muted"> <span class="col-7">Date: ${eventDetail.date}</span></small></p>
+              <p class="card-text"><small class="text-muted"> <span class="col-7">Place: ${eventDetail.place}</span></small></p>
+              <p class="card-text"><small class="text-muted"><span class="col-7">Price:$ ${eventDetail.price}</span></span></small></p>
+              <p class="card-text"><small class="text-muted"><span class="col-7"> ${(eventDetail.assistance != undefined) ? ("Assistance: ") : ("Estimate: ")}  ${(eventDetail.assistance != undefined) ? (eventDetail.assistance) : (eventDetail.estimate)}</span></small></p>
               </div>
+              
             </div>
           </div>
         </div>
       </div>`
+
+
+
+        detailCard.innerHTML = card;
+    }
+
 
 
 }
